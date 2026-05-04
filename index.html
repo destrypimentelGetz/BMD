@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loop & Pop Clothing</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#shop" aria-label="Loop and Pop home">
+        <span class="brand-mark">LP</span>
+        <span>
+          <strong>Loop & Pop</strong>
+          <small>clothes with bounce</small>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#shop">Shop</a>
+        <a href="#checkout">Checkout</a>
+      </nav>
+
+      <button class="cart-button" id="openCart" type="button" aria-controls="cartPanel" aria-expanded="false" aria-label="Open cart, 0 items">
+        <span class="cart-icon" aria-hidden="true">Bag</span>
+        <span id="cartCount">0</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="shop-intro" id="shop">
+        <div class="intro-copy">
+          <p class="eyebrow">New drop</p>
+          <h1>Play-ready fits for loud weekends.</h1>
+          <p>
+            Build a cart from color-happy layers, soft staples, and statement pieces made
+            for everyday motion.
+          </p>
+        </div>
+
+        <aside class="drop-card" aria-label="Current promotion">
+          <span>Free shipping</span>
+          <strong>Orders over $75</strong>
+          <small>Applied automatically at checkout</small>
+        </aside>
+      </section>
+
+      <section class="product-section" aria-labelledby="featuredTitle">
+        <div class="section-heading">
+          <p class="eyebrow">Featured rack</p>
+          <h2 id="featuredTitle">Fresh picks</h2>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+      </section>
+
+      <section class="checkout-section" id="checkout" aria-labelledby="checkoutTitle">
+        <div class="checkout-copy">
+          <p class="eyebrow">Almost yours</p>
+          <h2 id="checkoutTitle">Checkout</h2>
+          <p>Review your bag, choose a shipping rhythm, and place a demo order.</p>
+          <div class="checkout-message" id="checkoutMessage" role="status" aria-live="polite"></div>
+        </div>
+
+        <form class="checkout-form" id="checkoutForm" novalidate>
+          <label>
+            Full name
+            <input id="customerName" name="customerName" type="text" autocomplete="name" required />
+          </label>
+          <label>
+            Email
+            <input id="customerEmail" name="customerEmail" type="email" autocomplete="email" required />
+          </label>
+          <label class="wide">
+            Shipping address
+            <input id="customerAddress" name="customerAddress" type="text" autocomplete="street-address" required />
+          </label>
+          <fieldset class="wide">
+            <legend>Shipping</legend>
+            <label class="radio-row">
+              <input type="radio" name="shipping" value="standard" data-cost="6" checked />
+              Standard <span>$6</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="shipping" value="express" data-cost="14" />
+              Express <span>$14</span>
+            </label>
+          </fieldset>
+          <button class="checkout-submit wide" type="submit">Place demo order</button>
+        </form>
+      </section>
+    </main>
+
+    <aside class="cart-panel" id="cartPanel" role="dialog" aria-modal="true" aria-label="Shopping cart" aria-hidden="true">
+      <div class="cart-header">
+        <div>
+          <p class="eyebrow">Your bag</p>
+          <h2>Cart</h2>
+        </div>
+        <button class="icon-button" id="closeCart" type="button" aria-label="Close cart">X</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-empty" id="cartEmpty">Your bag is waiting for something fun.</div>
+      <dl class="totals">
+        <div>
+          <dt>Subtotal</dt>
+          <dd id="subtotal">$0.00</dd>
+        </div>
+        <div>
+          <dt>Tax</dt>
+          <dd id="tax">$0.00</dd>
+        </div>
+        <div>
+          <dt>Shipping</dt>
+          <dd id="shipping">$0.00</dd>
+        </div>
+        <div class="grand-total">
+          <dt>Total</dt>
+          <dd id="total">$0.00</dd>
+        </div>
+      </dl>
+      <a class="cart-checkout" href="#checkout" id="cartCheckout">Go to checkout</a>
+    </aside>
+
+    <div class="scrim" id="scrim" hidden></div>
+
+    <section class="confirmation" id="confirmation" role="dialog" aria-modal="true" aria-labelledby="confirmationTitle" hidden aria-live="polite">
+      <div class="confirmation-card">
+        <button class="icon-button" id="closeConfirmation" type="button" aria-label="Close confirmation">X</button>
+        <p class="eyebrow">Order popped</p>
+        <h2 id="confirmationTitle">Thanks for shopping Loop & Pop.</h2>
+        <p id="confirmationSummary"></p>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
